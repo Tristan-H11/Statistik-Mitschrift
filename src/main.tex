@@ -1,0 +1,29 @@
+\documentclass{book}
+
+\input{preamble}
+\input{macros}
+
+\title{\Huge{Some Class}\\Random Examples}
+\author{\huge{Your Name}}
+\date{}
+
+\begin{document}
+
+    \maketitle
+    \newpage% or \cleardoublepage
+% \pdfbookmark[<level>]{<title>}{<dest>}
+    \pdfbookmark[section]{\contentsname}{toc}
+    \tableofcontents
+    \pagebreak
+
+%    \chapter{}
+%    \subsection{Random Examples}
+%    \dfn{Titel}{Inhalt}
+%    \qs{}{Inhalt}
+%    \sol Inhalt
+%    \nt{Notiz Inhalt}
+
+\include{Einfuehrung}
+\include{empirische-verteilungen}
+
+\end{document}
