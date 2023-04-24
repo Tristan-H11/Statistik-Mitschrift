@@ -4,8 +4,7 @@ Ganz allgemein entstehen diese Daten durch Stichprobenerhebung oder Befragung. W
 \clm{Zusammenhang Datenerhebung und Datenqualität}{}{Man muss sich darüber im Klaren sein, dass die Daten niemals besser sein können, als die Erhebungsmethode, aus welcher sie hervorgingen.}
 Daraus ergibt sich, dass Marktforscher im Idealfall gute Statistikkenntnisse aufweisen. Diese Vorlesung arbeitet jedoch nach dem Leitsatz: \textit{Statistik beginnt erst, wenn die Daten vorliegen!}
 
-\section{Allgemeines}
-\subsection{Entstehung der Daten}
+\section{Entstehung der Daten}
 Man muss sich in diesem Rahmen
 \begin{enumerate}
     \item zuerst darüber im Klaren sein, welche Frage eigentlich beantwortet werden muss. (\textbf{Forschungshypothese})
@@ -18,13 +17,14 @@ Um über die Qualität der Operationalisierung bzw der Messung urteilen zu könn
     \item \textbf{Gültigkeit:} Messfehler sollten so klein wie möglich sein
 \end{enumerate}
 
-\subsection{Merkmale und ihre Eigenschaften}
+\section{Merkmale und ihre Eigenschaften}
 Die empirische Statistik untersucht die Verteilung von Merkmalen oder Variablen, die nicht vorher durch Theorien bekannt sein können.
 Die Ergebnisse sind nicht vorhersehbar, da das gemessene unter den Merkmalsträgern variiert.
 \newline
 Merkmale können als \textbf{Untersuchungsgegenstand} definiert werden. Es ist eine Eigenschaft, die an einem Untersuchungssubjekt (\textbf{Merkmalsträger}) beobachtet wird.
 Die Merkmale und ihre \textbf{Merkmalsausprägungen} werden in der Planung der Untersuchung festgelegt.
 \ex{Merkmalsträger und -ausprägung}{Bei einer Umfrage sind die befragten Personen die Merkmalsträger. Die abgefragten Gegenstände (Haarfarbe, Kinderzahl, Alter, Geschlecht) sind die Merkmale. Die Ausprägungen sind entsprechend (blond, schwarz, rot,..) und (0,1,2,..) usw.}
+
 Wie man sieht, können sehr verschiedene Eigenschaften gemessen werden. Eine Untersuchung kann nur eine begrenzte Anzahl von Merkmalen aufnehmen und kann demnach nur als vereinfachtes Abbild der Realität fungieren.
 \newline
 Bei dem obigen Beispiel sind die Merkmale bewusst so gewählt worden. Es zeigt, dass die Ausprägungen sehr verschiedener Art sein können.
@@ -52,5 +52,56 @@ Ist ein Nullpunkt vorhanden, so können die Operationen um Multiplikation und Di
 }
 \nt{Bei Untersuchungen wird man oft feststellen, dass ein diskretes Mekrmal, welches sehr viele Ausprägungen (Geldbeträge in Cent) annehmen kann, häufig als stetiges Merkmal behandelt wird. Man spricht bei ihnen von \textbf{quasistetigen} Merkmalen. Andererseits werden auch einige stetige Merkmale als diskret erhoben (Lebensdauer).}
 
-\subsection{Definition und Notationen}
-TODO
+\section{Definition und Notationen}
+\dfn{Grundbegriffe}{Die Menge aller für die Untersuchung relevanten Merkmalsträger ist die \textbf{Grundgesamheit}. \newline
+Die Menge der in der Untersuchung betrachteten Merkmalsträger nennt man die \textbf{Strichprobe}. \newline
+Die Gesamtheit aller Daten über Merkmale, Merkmalsträger und Merkmalsausprägungen wird als Beobachtungsdaten oder \textbf{Urliste} bezeichnet.
+}
+Man spricht immer von $n$ vorhandenen Merkmalsträgern. Es wird ein \textbf{Laufindex} $j$ für den j-ten Merkmalsträger definiert:
+\[j=1,2,\dots,n-1,n\]
+$X$ und $Y$ werden immer die Merkmale allgemein bezeichnen.
+$x_j$ bezeichnet die Ausprägung von Merkmal $X$ für den j-ten Merkmalsträger.
+\newline
+Eine Datenreihe für ein Merkmal $X$ lautet dann entsprechend:
+\[x_1, x_2, \dots, x_{n-1}, x_n\]
+
+\section{Univariate Darstellung für verschiedene Merkmalsniveaus}
+\subsection{Nominalskalierte Merkmale}
+Nominalskalierte Merkmale lassen sich in einer Häufigkeitstabelle (\ref{fig:haeufigkeitstabelle-nominale-merkmale}) darstellen und zusammenfassen.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{haeufigkeitstabelle-nominale-merkmale}
+    \caption{Häufigkeitstabelle nominaler Merkmale}
+    \label{fig:haeufigkeitstabelle-nominale-merkmale}
+\end{figure}
+\newline
+Die Häufigkeitstabelle besteht aus $k$ Klassen bzw Kategorien. \newline
+Aus der Tabelle kann man mehrere Sachen ablesen, die man ohnehin schon wusste:
+\clm{Summe der absoluten Häufigkeiten}{}{Die absoluten Häufigkeiten, die der Tabelle ihren Namen geben, addierern sich zu $n$ (dem Stichprobenumfang)
+\[\sum_{i=1}^{k} n_i = n\]
+Beispiel: 3 Leute, davon 2 blond, einer dunkelhaarig. $2+1=3$.
+}
+\clm{Relative Häufigkeiten aus absoluten Häufigkeiten}{}{Dividiert man die absoluten Häufigkeiten durch $n$, erhält man die relativen Häufigkeiten. Damit kann man Stichproben mit verschiedenen Umfängen vergleichen. Die relativen Häufigkeiten addieren sich zu 1:
+\[\frac{1}{n}\sum_{i=1}^{k} n_i = \sum_{i=1}^{k} p_i = 1\]
+}
+Um eine Idee von der Streuung der Daten zu bekommen, wird ein Maß eingeführt, welches man den \textbf{Index of Diversity} nennt:
+\[D = 1 - \sum_{i=1}^{k} p_i^2\]
+Der Index of Diversity liegt in einem Wertebereich $(0 \leq D < 1)$.
+Ein Wert von 0 bedeutet, dass alle Merkmalsausprägungen identisch sind (keine Vielfalt), während ein Wert nahe 1 auf eine hohe Vielfalt in der Verteilung der Merkmalsausprägungen hindeutet.
+Es ist ratsam, den Wert $D$ nicht an 1, sondern an $1- k^{-1}$ zu vergleichen, weil k in den seltensten Fällen unendlich groß sein wird.
+
+\subsection{Ordinalskalierte Merkmale}
+Ordinalskalierte Werte sind Werte, die eine klare Hierarchie aufweisen, wobei die Abstände zwischen den Werten nicht gleich interpretiert werden können.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{haeufigkeitstabelle-ordinale-merkmale}
+    \caption{Häufigkeitstabelle ordinaler Merkmale}
+    \label{fig:haeufigkeitstabelle-ordinale-merkmale}
+\end{figure}
+\newline
+Das einzig Neue in dieser Tabelle (\ref{fig:haeufigkeitstabelle-ordinale-merkmale}) sind die \textbf{kumulierten relativen Häufigkeiten} (auch Summenhäufigkeiten).
+Diese sind vor allem interessant, weil sie Vergleiche zwischen Stichproben unterschiedlicher Umfänge erlauben.
+Dies ist aufgrund der eindeutigen Ordnung der Werte möglich.
+$F(x_i)$ stellt den Anteil der Werte dar, die höchstens die Merkmalsausprägung $x_i$ aufweisen.
+\[F(x_i) = F_i = A(X \leq x_i) = \sum_{j=1}^{i} p_j \]
+Üblicherweise wird die Summenhäufigkeit als Treppenfunktion dargestellt.
