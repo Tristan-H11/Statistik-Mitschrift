@@ -85,10 +85,12 @@ Beispiel: 3 Leute, davon 2 blond, einer dunkelhaarig. $2+1=3$.
 \[\frac{1}{n}\sum_{i=1}^{k} n_i = \sum_{i=1}^{k} p_i = 1\]
 }
 Um eine Idee von der Streuung der Daten zu bekommen, wird ein Maß eingeführt, welches man den \textbf{Index of Diversity} nennt:
+\dfn{Index of Diversity}{
 \[D = 1 - \sum_{i=1}^{k} p_i^2\]
-Der Index of Diversity liegt in einem Wertebereich $(0 \leq D < 1)$.
+Der Index of Diversity liegt in einem Wertebereich $0 \leq D < 1$.
 Ein Wert von 0 bedeutet, dass alle Merkmalsausprägungen identisch sind (keine Vielfalt), während ein Wert nahe 1 auf eine hohe Vielfalt in der Verteilung der Merkmalsausprägungen hindeutet.
 Es ist ratsam, den Wert $D$ nicht an 1, sondern an $1- k^{-1}$ zu vergleichen, weil k in den seltensten Fällen unendlich groß sein wird.
+}
 
 \subsection{Ordinalskalierte Merkmale}
 Ordinalskalierte Werte sind Werte, die eine klare Hierarchie aufweisen, wobei die Abstände zwischen den Werten nicht gleich interpretiert werden können.
@@ -102,6 +104,46 @@ Ordinalskalierte Werte sind Werte, die eine klare Hierarchie aufweisen, wobei di
 Das einzig Neue in dieser Tabelle (\ref{fig:haeufigkeitstabelle-ordinale-merkmale}) sind die \textbf{kumulierten relativen Häufigkeiten} (auch Summenhäufigkeiten).
 Diese sind vor allem interessant, weil sie Vergleiche zwischen Stichproben unterschiedlicher Umfänge erlauben.
 Dies ist aufgrund der eindeutigen Ordnung der Werte möglich.
+\dfn{Kumulierte relative Häufigkeit}{
 $F(x_i)$ stellt den Anteil der Werte dar, die höchstens die Merkmalsausprägung $x_i$ aufweisen.
 \[F(x_i) = F_i = A(X \leq x_i) = \sum_{j=1}^{i} p_j \]
 Üblicherweise wird die Summenhäufigkeit als Treppenfunktion dargestellt.
+}
+\newline
+Übliche Kennwerte sind die \textbf{Quantile} (oder Prozentpunkte).
+Die repräsentieren bestimmte Punkte einer Verteilung und teilen eben diese, basierend auf den kumulierten relativen Häufigkeiten, in gleich große Abschnitte ein. \newline
+\dfn{Quantile}{
+Quantile $X_w$ werden als die erste Merkmalsausprägung definiert, für welche die kumulierte relative Häfigkeit größer gleich $w$ ist.
+\[F_i \geq w\]
+Dies bedeutet, dass sie den Punkt in der Verteilung angeben, an dem mindestens ein bestimmter Prozentsatz $w$ der Daten erreicht oder überschritten wird.
+}
+\clm{Quartile}{}{
+Zu den wichtigsten Quantilen gehören die Quartile.
+Sie werden als $Q_i$ mit $i\in {1,2,3}$ angegeben.
+Man spricht dann von dem ersten, zweiten oder dritten Quartil.
+Die Quartile teilen die Rangwertreihe in 4 gleichmäßige Abschnitte auf und trennen bei 25\%, 50\% und 75\%.
+}
+Der \textbf{Median} ist ein bekanntes Beispiel für ein Quantil.
+Er ist der Wert, bei dem die kumulierte relative Häufigkeit erstmals 50\% erreicht oder überschreitet.
+Das bedeutet, dass 50\% der Daten kleiner oder gleich dem Median sind, während die anderen 50\% der Daten größer oder gleich dem Median sind.
+Der Median ist somit $Q_2$ und berechnet sich als mittelster Wert der sortierten Liste, wenn die Anzahl der ungerade ist und als Mittelwert der beiden mittleren Werte, wenn die Anzahl gerade ist.
+
+
+\subsection{Streuungsmaße}
+\begin{itemize}
+    \item Die \textbf{Spann- oder Streuweite} $R$ (wie Range) ist die Differenz zwischen den Extremwerten:
+    \[R = x^{max} - x^{min}\]
+    Die Streuweite wird üblicherweise zusammen mit dem Mittelwert angegeben, weil sie andernfalls nicht mehr aussagekräftigt wäre.
+    \item Der \textbf{Interquartilsabstand} $IQA$ gibt den Bereich an, der von den mittleren 50\% der Werte bedeckt wird.
+    \[IQA = Q_3 - Q_1\]
+    \item Der \textbf{relative Quartilsabstand} berechnet sich aus dem Verhältnis von $IQA$ und $R$.
+    Je näher diese Zahl an 1 ist, desto gestreuter ist die Verteilung.
+    Je näher diese Zahl an 0 ist, desto konzentrierter ist die Verteilung.
+    \[IQA_r = \frac{IQA}{R}\]
+    \item Der \textbf{mittlere Quartilsabstand} $MQA$ wird als die Hälfte des $IQA$ definiert.
+    \[MQA = \frac{IQA}{2} = \frac{Q_3 - Q_1}{2}\]
+    Bei symmetrischen Verteilungen gilt entsprechend mit $Md$ als Median:
+    \[MQA = \frac{Q_3 - Q_1}{2} = Q_3 - Md\]
+\end{itemize}
+
+
