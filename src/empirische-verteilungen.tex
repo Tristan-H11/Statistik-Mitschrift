@@ -146,4 +146,23 @@ Der Median ist somit $Q_2$ und berechnet sich als mittelster Wert der sortierten
     \[MQA = \frac{Q_3 - Q_1}{2} = Q_3 - Md\]
 \end{itemize}
 
+\subsection{Intervallskalierte und diskret proportionalskalierte Merkmale}
+Auch hier kann man den Median, Index of Diversity und bisher bekanntes berechnen.
+Neu ist nachfolgend das arithmetische Mittel und die Standardabweichung.
+\dfn{Arithmetisches Mittel (Durchschnitt)}{
+Für den Durchschnitt, genauer: das arithmetische Mittel, wird die Summe aller Werte der Urliste berechnet und durch die Anzahl der summierten Werte addiert. Mathematisch ausgedrückt:
+\[\overline{x}=\frac{1}{n} \sum_{j=1}^{n} x_j\]
+Falls die Daten nur in Häufigkeitstabellen bzw relativen Häufigkeiten ($p_z$) mit $k$ Klassen gegeben sind, ändert sich die Formel wie folgt:
+\begin{align*}
+    \overline{x} &=\frac{1}{n} \sum_{j=1}^{n} x_j =\frac{1}{n} \sum_{z=1}^{k} x_z n_z =\sum_{z=1}^{k} x_z \frac{n_z}{n} \\
+    &=\sum_{z=1}^{k} x_z p_z
+\end{align*}
+}
 
+
+\clm{Symmstrie}{}{
+Ist eine Verteilung symmetrisch, so ist der häufigste Wert in de rMitte, der Median auch und der Durchschnitt auch.
+Deshalb gilt:
+\[\overline{x} = \tilde{x} = x_D\]
+Wobei $\overline{x}$ der Durchschnitt ist, $\tilde{x}$ der Median und $x_D$ der häufigste Wert ist.
+}
