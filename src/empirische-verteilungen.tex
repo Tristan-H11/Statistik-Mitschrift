@@ -159,10 +159,88 @@ Falls die Daten nur in Häufigkeitstabellen bzw relativen Häufigkeiten ($p_z$) 
 \end{align*}
 }
 
-
 \clm{Symmstrie}{}{
-Ist eine Verteilung symmetrisch, so ist der häufigste Wert in de rMitte, der Median auch und der Durchschnitt auch.
+Ist eine Verteilung symmetrisch, so ist der häufigste Wert in der Mitte, der Median auch und der Durchschnitt auch.
 Deshalb gilt:
 \[\overline{x} = \tilde{x} = x_D\]
 Wobei $\overline{x}$ der Durchschnitt ist, $\tilde{x}$ der Median und $x_D$ der häufigste Wert ist.
+}
+Zu beachten ist außerdem, dass das arithmetische Mittel sehr empfindlich gegenüber Ausreißern in den Daten ist.
+Eine eigentlich sehr konzentrierte Verteilung mit einzelnen Werten weit ab vom Rest, kann den Durchschnitt erheblich beeinflussen.
+So wäre der Durchschnitt von $X_1 = \{1,2,3,4,4,3,2,1\}$ gleich $2.5$ ist, während der Durchschnitt von $X_2 = \{1,2,3,4,4,3,2,25\}$ gleich $5.5$ ist.
+Hieran sieht man deutlich, dass ein solcher Ausreißer den Durchschnitt in seiner Aussagekraft deutlich mindert.
+
+\clm{Summe der Abweichungen vom arithmetischen Mittel ist immer 0}{}{
+Gegeben ist eine Urliste von Werten $X$ mit Mächtigkeit $n$ und dem zugehörigen arithmetischen Mittel $\overline{x}$.
+Es gilt immer:
+    \[\sum_{j=1}^{n}(x_j - \overline{x}) = 0 \]
+Im gleichen Zuge die \textbf{Abweichung vom Durchschnitt} für die j-te Ausprägung wie folgt definiert:
+\[x^\ast = x_j - \overline{x}\]
+Verdeutlicht an einem Beispiel mit $X = \{1,2,3\}$ und entsprechend $\overline{x} = 2$:
+\begin{align*}
+    Abweichung &= \sum_{j=1}^{n}(x_j - \overline{x}) = \sum_{j=1}^{3}(x_j - \overline{2}) \\
+    &= (1-2) + (2-2) + (3-2) \\
+    &= -1 + 0 + 1 \\
+    &= 0
+\end{align*}
+}
+Weil mit dieser Darstellung der Abweichung vom Durchschnitt nicht gut zu arbeiten ist (und sie maximal Rechenfehler aufzeigen kann).
+Diese Tatsache zeigt lediglich, dass das arithmetische Mittel einen Gleichgewichtspunkt in der Verteilung der Urliste darstellt.
+Es gibt jedoch Möglichkeiten, die Abweichung vom Durchschnitt so zu modifizieren, dass sie ein aussagekräftiger Indikator im Messen von Abweichungen werden kann.
+\dfn{Mittlere quadratische Abweichung}{
+Es wird $d^2$ als mittlere quadratische Abweichung definiert, in dem die Abweichung vom Durchschnitt quadriert wird und man den Durchschnitt der quadrierten Abweichungen berechnet. $x_j^\ast$ stellt in diesem Fall die Abweichung vom Durchschnitt für die j-te Ausprägung dar:
+\[d^2 = \frac{1}{n} \sum_{j=1}^{n} x_j^{\ast 2} = \frac{1}{n} \sum_{j=1}^{n}(x_j -\overline{x})^2 \]
+}
+Aus der mittleren quadratischen Abweichung lässt sich anschließend die Stichprobenvarianz berechnen.
+\dfn{Stichprobenvarianz}{
+Die Stichprobenvarianz $s^2$ wird wie folgt berechnet:
+\[s^2 = \frac{1}{n-1} \sum_{j=1}^{n} x_j^{\ast 2} = \frac{1}{n-1} \sum_{j=1}^{n}(x_j -\overline{x})^2\]
+Der offensichtlich einzige Unterschied zu $d^2$ liegt darin, dass die Summe keinen Faktor mehr von $n^{-1}$ aufweist, sondern einen Faktor von $(n-1)^{-1}$.
+Entsprechend lässt sich die Stichprobenvarianz auch wie folgt beschreiben:
+\[s^2 = \frac{n}{n-1}\cdot d^2\]
+}
+Mit der definierten Stichprobenvarianz lässt sich das bekannte Abweichungsmaß der \textbf{Stichprobenstandardabweichung} bestimmen.
+\dfn{Stichprobenstandardabweichung (Standardabweichung)}{
+Die Stichprobenstandardabweichung $s$ ist wie folgt definiert:
+\[s = \sqrt{s^2} = \sqrt{\frac{1}{n-1} \sum_{j=1}^{n}(x_j -\overline{x})^2} = \sqrt{\frac{n}{n-1}\cdot d^2}\]
+Man kann bei $s$ annehmen, dass es in den sleben Einheiten ausgedrückt wird, wie die Daten selber.
+Die Standardabweichung stellt die durchschnittliche Abweichung aller Werte von dem arithmetischen Mittel dar.
+}
+\clm{Mittleres Schwankungsintervall}{}{
+Am aussagekräftigsten ist die Angabe des mittleren Schwankungintervalls:
+\[\overline{x} \pm s = [\overline{x} - s, \overline{x} + s]\]
+Je mehr sich die Grenzen dieses Intervalls von den Grenzen des Definitionsbereichs der Urliste absetzt, desto weniger streut die Verteilung.
+}
+Die praktische Vorgehensweise zur Berechnung von $s$ benötigt zusätzlich den \textbf{Durchschnitt der Quadrate} der Merkmalsausprägungen:
+\[\overline{x^2} = \frac{1}{n} \sum_{j=1}^{n} x_j^2\]
+um $d^2$ wie folgt zu definieren:
+\[d^2 = \overline{x^2} - \overline{x}^2\]
+\\
+\dfn{Variationskoeffizient}{
+Der Variationskoeffzient $v$ ist ein Maß, welches ein Vergleich zwischen zwei Verteilungen schaffen kann.
+Er gibt an, wie viele \% des Arithmetischen Mittels von der Standardabweichung ausgemacht werden und wird wie folgt berechnet:
+\[v = \frac{s}{\overline{x}}\]
+$v$ kann $<1$ oder $>1$ sein, allerdings niemals negativ.
+Ist $v$ kleiner als $1$, so ist die Standardabweichung kleiner als der Mittelwert ist und die Daten relativ eng um den Mittelwert herum verteilt sind.
+Umso weiter $v$ gegen $0$ geht, desto enger liegen die Werte um $\overline{x}$ herum.
+Gegenteilig sind die Werte weit um $\overline{x}$ herum gestreut, wenn $v$ größer als 1 sein sollte.
+Der Variationskoeffizient sollte also genutzt werden, um zwei Verteilungen auf ihre Streuung hin zu vergleichen.
+}
+\ex{Beispiel zum Variationskoeffizienten}{
+Gegeben sind die beiden Datensätze $X_1 = \{1,2,2,2,3,4\}$ und $X_2 = \{-20,1,1,1,40,400\}$.
+Für diese wird nun jeweils der Variationskoeffizient berechnet: \newline
+Datensatz 1:
+\begin{itemize}
+    \item $\overline{x} = 2.33$
+    \item $s = 1.03$
+    \item $v = 1.03\cdot 2.33^{-1} = 0.44$
+\end{itemize}
+Datensatz 2:
+\begin{itemize}
+    \item $\overline{x} = 70.5$
+    \item $s = 146.26$
+    \item $v = 146.26\cdot 70.5^{-1} = 2.07$
+\end{itemize}
+Hier ist deutlich zu sehen, was das Betrachten der Datensätze schon vermuten lässt: Datensatz 2 ist deutlich weiter gestreut, als Datensatz 1.
+Die Streuung von Datensatz 1 ist sogar als recht eng zu beurteilen, weil $v$ eher gegen 0, als gegen 1 geht.
 }
