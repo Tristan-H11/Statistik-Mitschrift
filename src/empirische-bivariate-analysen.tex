@@ -1,0 +1,63 @@
+\chapter{Empirische bivariate Analysen}
+\section{Einführung in die Korrelationsanalyse}
+Die Korrelationsanalyse ist eine zentrale Methode in der empirischen bivariaten Analyse und ermöglicht es, den Zusammenhang zwischen zwei Merkmalen zu untersuchen.
+Dabei wird zunächst betrachtet, inwieweit die Merkmale voneinander abhängig sind und ob sie in einer Beziehung zueinander stehen.
+Diese Beziehung kann sowohl linear als auch nicht-linear sein.
+Ziel der Korrelationsanalyse ist es, den Grad und die Art der Beziehung zwischen den Merkmalen zu bestimmen und zu quantifizieren.
+\newline \newline
+Um die Stärke des Zusammenhangs zwischen zwei Merkmalen zu messen, wird der Korrelationskoeffizient verwendet.
+Dieser Wert liegt typischerweise im Bereich von -1 bis 1, wobei ein Wert von 0 auf keinen Zusammenhang, negative Werte auf eine negative Korrelation (wenn ein Merkmal steigt, fällt das andere) und positive Werte auf eine positive Korrelation (wenn ein Merkmal steigt, steigt auch das andere) hindeuten.
+\newline \newline
+In der bivariaten Analyse werden außerdem verschiedene grafische Darstellungen verwendet, um den Zusammenhang zwischen den Merkmalen visuell zu erfassen.
+Hierzu gehören beispielsweise Streudiagramme, die die Wertepaare der Merkmale X und Y in einem kartesischen Koordinatensystem darstellen, oder Kontingenztafeln, die Häufigkeiten von Wertepaaren in einer tabellarischen Form zeigen.
+\newline \newline
+Es ist wichtig zu beachten, dass Korrelation nicht gleich Kausalität bedeutet.
+Ein signifikanter Zusammenhang zwischen zwei Merkmalen impliziert nicht zwangsläufig, dass das eine Merkmal das andere verursacht.
+Daher sind bei der Interpretation der Ergebnisse einer Korrelationsanalyse immer auch alternative Erklärungen und mögliche Störvariablen in Betracht zu ziehen.
+\subsection{Kovarianz}
+\dfn{Empirische Kovarianz}{
+Die empirische Kovarianz ist wie folgt definiert:
+\[\mathrm{cov}(x,y) = \frac{1}{n} \sum_{i=1}^{n} (x_i - \ol{x})(y_i - \ol{y})\]
+Eine umgeformte kürzere Fassung:
+\[\mathrm{cov}(x,y) = \ol{xy} - \ol{x}\cdot\ol{y}\]
+mit
+\[\ol{xy} = \frac{1}{n} \sum_{i=1}^{n}(x_i y_i) \]
+In Worten ausgedrückt: Die Differenz vom Durschschnitt der Produkte und dem Produkt der Durschschnitte
+}
+Parallel dazu wird, analog zum vorherigen Kapitel, die Stichprobenkovarianz definiert:
+\dfn{Stichprobenkovarianz}{
+Die Stichprobenkovarianz $s_{xy}$ ist wie folgt definiert:
+\[s_{xy} = \frac{1}{n-1} \sum_{i=1}^{n} (x_i - \ol{x})(y_i - \ol{y})\]
+Dieser Wert gibt an, inwieweit zwei Merkmale $X$ und $Y$ gemeinsam variieren.
+Ein positiver Wert zeigt an, dass die Merkmale sich tendentiell proportional verhalten, während ein negativer Wert auf ein antiproportionales Verhalten hindeutet.
+}
+\ex{Beispiel zur Stichprobenkovarianz}{
+Angenommen, wir untersuchen den Zusammenhang zwischen der Anzahl der Stunden, die jemand lernt, und der erreichten Punktzahl bei einer Prüfung.
+Eine positive Kovarianz würde darauf hindeuten, dass im Allgemeinen mehr Lernstunden zu einer höheren Punktzahl führen, während eine negative Kovarianz bedeuten würde, dass mehr Lernstunden mit einer niedrigeren Punktzahl verbunden sind (was in der Praxis unwahrscheinlich wäre).
+}
+\subsection{Stichprobenkorrelationskoeffizient}
+Die Stichprobenkovarianz hat zwei Nachteile: Sie ist unbegrenzt und maßstabsabhängig.
+Der Korrelationskoeffizient wurde entwickelt, um diese Probleme zu beheben.
+Um die Einheiten von X und Y zu eliminieren, wird die Stichprobenkovarianz durch Größen dividiert, die in Einheiten von X und Y ausgedrückt sind, wie z.B.\ die Standardabweichungen, die ebenfalls Abweichungen in ihren Berechnungen verwenden.
+\dfn{Stichprobenkorrelationskoeffizient}{
+Der Stichproben-Korrelationskoeffizient $r$ ist ein Maß für den Grad und die Richtung des linearen Zusammenhangs zwischen zwei Variablen und wie folgt definiert:
+    \[r = \frac{\mathrm{cov}(x, y)}{d_x \cdot d_y} = \frac{\ol{xy} - \ol{x}\cdot\ol{y}}{\sqrt{\ol{x^2} - \ol{x}^2} \cdot \sqrt{\ol{y^2} - \ol{y}^2}} = \frac{s_{xy}}{s_x \cdot s_y}\]
+Er variiert zwischen -1 und 1, wobei r = 1 eine perfekte positive Korrelation (alle Punkte liegen auf einer Linie mit positiver Steigung), r = -1 eine perfekte negative Korrelation (alle Punkte liegen auf einer Linie mit negativer Steigung) und r = 0 keinen linearen Zusammenhang zwischen den Variablen bedeutet.
+}
+Es ist zu beachten, dass $r$ maßstabsunabhängig ist und dadurch stabil gegenüber Datentransformationen (wie der Währungsumrechnung)ist.
+Der Stichprobenkorrelationskoeffizient ist ebenfalls sehr empfindlich gegenüber ausreißern.
+\newline
+Für die Werte von $\mid r\mid$ spricht man von folgenden Zusammenhängen:
+\begin{itemize}
+    \item 1: vollkommene Korrelation (alle Werte auf einer Geraden)
+    \item 0.66-0.99: sehr starke Korrelation
+    \item 0.36-0.65: starke Korrelation
+    \item 0.16-0.35: mäßige Korrelation
+    \item 0.00-0.15: vernachlässigbare Korrelation
+\end{itemize}
+Ist $r$ negativ, so spricht man von negativen Korrelationen, ist $r$ positiv, so spricht man von positiven Korrelationen.
+
+\section{Einführung in die Regressionsanalyse}
+blabla
+
+\subsection{Berechnung der Regressionskoeffizienten}
