@@ -67,13 +67,24 @@ Eine Datenreihe für ein Merkmal $X$ lautet dann entsprechend:
 
 \section{Univariate Darstellung für verschiedene Merkmalsniveaus}
 \subsection{Nominalskalierte Merkmale}
-Nominalskalierte Merkmale lassen sich in einer Häufigkeitstabelle (\ref{fig:haeufigkeitstabelle-nominale-merkmale}) darstellen und zusammenfassen.
-\begin{figure}[h]
+Nominalskalierte Merkmale lassen sich in einer Häufigkeitstabelle (\ref{tab:haeufigkeitstabelle-nominale-merkmale}) darstellen und zusammenfassen.
+
+\begin{table}[h]
     \centering
-    \includegraphics[width=\textwidth]{haeufigkeitstabelle-nominale-merkmale}
+    \begin{tblr}{
+        hlines,
+        vlines,
+    }
+        $x_i$                 & 0 & 1 & 2 & $\sum$ & aufgetretene Ausprägungen    \\
+        $n_i$                 &   &   &   &        & absolute Häufigkeiten        \\
+        $p_i = \frac{n_i}{n}$ &   &   &   &        & relative Häufigkeiten        \\
+        $100p_i$              &   &   &   &        & prozentuale Häufigkeiten     \\
+        $p_i^2$               &   &   &   &        & quadrierte rel. Häufigkeiten
+    \end{tblr}
     \caption{Häufigkeitstabelle nominaler Merkmale}
-    \label{fig:haeufigkeitstabelle-nominale-merkmale}
-\end{figure}
+    \label{tab:haeufigkeitstabelle-nominale-merkmale}
+\end{table}
+
 \newline
 Die Häufigkeitstabelle besteht aus $k$ Klassen bzw Kategorien. \newline
 Aus der Tabelle kann man mehrere Sachen ablesen, die man ohnehin schon wusste:
