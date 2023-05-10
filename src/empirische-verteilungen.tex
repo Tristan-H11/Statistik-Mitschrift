@@ -71,18 +71,18 @@ Nominalskalierte Merkmale lassen sich in einer Häufigkeitstabelle (\ref{tab:hae
 
 \begin{table}[h]
     \centering
+    \label{tab:haeufigkeitstabelle-nominale-merkmale}
     \begin{tblr}{
         hlines,
         vlines,
     }
-        $x_i$                 & 0 & 1 & 2 & $\sum$ & aufgetretene Ausprägungen    \\
-        $n_i$                 &   &   &   &        & absolute Häufigkeiten        \\
-        $p_i = \frac{n_i}{n}$ &   &   &   &        & relative Häufigkeiten        \\
-        $100p_i$              &   &   &   &        & prozentuale Häufigkeiten     \\
-        $p_i^2$               &   &   &   &        & quadrierte rel. Häufigkeiten
+        $x_i$                 & 0 & 1 & 2 & 3 & $\sum$ & aufgetretene Ausprägungen    \\
+        $n_i$                 &   &   &   &   &        & absolute Häufigkeiten        \\
+        $p_i = \frac{n_i}{n}$ &   &   &   &   &        & relative Häufigkeiten        \\
+        $100p_i$              &   &   &   &   &        & prozentuale Häufigkeiten     \\
+        $p_i^2$               &   &   &   &   &        & quadrierte rel. Häufigkeiten
     \end{tblr}
     \caption{Häufigkeitstabelle nominaler Merkmale}
-    \label{tab:haeufigkeitstabelle-nominale-merkmale}
 \end{table}
 
 \newline
@@ -105,14 +105,26 @@ Es ist ratsam, den Wert $D$ nicht an 1, sondern an $1- k^{-1}$ zu vergleichen, w
 
 \subsection{Ordinalskalierte Merkmale}
 Ordinalskalierte Werte sind Werte, die eine klare Hierarchie aufweisen, wobei die Abstände zwischen den Werten nicht gleich interpretiert werden können.
-\begin{figure}[h]
+
+\begin{table}[h]
     \centering
-    \includegraphics[width=\textwidth]{haeufigkeitstabelle-ordinale-merkmale}
+    \begin{tabular}{|l|l|l|l|l|l|l|l|}
+        \hline
+        $x_i$                 & 0 & 1 & 2 & 3 & 4 & $\sum$ & aufgetretene Ausprägungen            \\
+        \hline
+        $n_i$                 &   &   &   &   &   &        & absolute Häufigkeiten                \\
+        \hline
+        $p_i = \frac{n_i}{n}$ &   &   &   &   &   &        & relative Häufigkeiten (Prozentwert)  \\
+        \hline
+        $F_i$                 &   &   &   &   &   &        & kumulierte relative Häufigkeiten     \\
+        \hline
+    \end{tabular}
     \caption{Häufigkeitstabelle ordinaler Merkmale}
-    \label{fig:haeufigkeitstabelle-ordinale-merkmale}
-\end{figure}
+    \label{tab:haeufigkeitstabelle-ordinale-merkmale}
+\end{table}
+
 \newline
-Das einzig Neue in dieser Tabelle (\ref{fig:haeufigkeitstabelle-ordinale-merkmale}) sind die \textbf{kumulierten relativen Häufigkeiten} (auch Summenhäufigkeiten).
+Das einzig Neue in dieser Tabelle (\ref{tab:haeufigkeitstabelle-ordinale-merkmale}) sind die \textbf{kumulierten relativen Häufigkeiten} (auch Summenhäufigkeiten).
 Diese sind vor allem interessant, weil sie Vergleiche zwischen Stichproben unterschiedlicher Umfänge erlauben.
 Dies ist aufgrund der eindeutigen Ordnung der Werte möglich.
 \dfn{Kumulierte relative Häufigkeit}{
