@@ -1,4 +1,6 @@
 \chapter{Empirische bivariate Analysen}
+
+
 \section{Einführung in die Korrelationsanalyse}
 Die Korrelationsanalyse ist eine zentrale Methode in der empirischen bivariaten Analyse und ermöglicht es, den Zusammenhang zwischen zwei Merkmalen zu untersuchen.
 Dabei wird zunächst betrachtet, inwieweit die Merkmale voneinander abhängig sind und ob sie in einer Beziehung zueinander stehen.
@@ -14,35 +16,37 @@ Hierzu gehören beispielsweise Streudiagramme, die die Wertepaare der Merkmale X
 Es ist wichtig zu beachten, dass Korrelation nicht gleich Kausalität bedeutet.
 Ein signifikanter Zusammenhang zwischen zwei Merkmalen impliziert nicht zwangsläufig, dass das eine Merkmal das andere verursacht.
 Daher sind bei der Interpretation der Ergebnisse einer Korrelationsanalyse immer auch alternative Erklärungen und mögliche Störvariablen in Betracht zu ziehen.
+
 \subsection{Kovarianz}
 \dfn{Empirische Kovarianz}{
-Die empirische Kovarianz ist wie folgt definiert:
-\[\mathrm{cov}(x,y) = \frac{1}{n} \sum_{i=1}^{n} (x_i - \ol{x})(y_i - \ol{y})\]
-Eine umgeformte kürzere Fassung:
-\[\mathrm{cov}(x,y) = \ol{xy} - \ol{x}\cdot\ol{y}\]
-mit
-\[\ol{xy} = \frac{1}{n} \sum_{i=1}^{n}(x_i y_i) \]
-In Worten ausgedrückt: Die Differenz vom Durschschnitt der Produkte und dem Produkt der Durschschnitte
+    Die empirische Kovarianz ist wie folgt definiert:
+    \[\mathrm{cov}(x,y) = \frac{1}{n} \sum_{i=1}^{n} (x_i - \ol{x})(y_i - \ol{y})\]
+    Eine umgeformte kürzere Fassung:
+    \[\mathrm{cov}(x,y) = \ol{xy} - \ol{x}\cdot\ol{y}\]
+    mit
+    \[\ol{xy} = \frac{1}{n} \sum_{i=1}^{n}(x_i y_i) \]
+    In Worten ausgedrückt: Die Differenz vom Durschschnitt der Produkte und dem Produkt der Durschschnitte
 }
 Parallel dazu wird, analog zum vorherigen Kapitel, die Stichprobenkovarianz definiert:
 \dfn{Stichprobenkovarianz}{
-Die Stichprobenkovarianz $s_{xy}$ ist wie folgt definiert:
-\[s_{xy} = \frac{1}{n-1} \sum_{i=1}^{n} (x_i - \ol{x})(y_i - \ol{y})\]
-Dieser Wert gibt an, inwieweit zwei Merkmale $X$ und $Y$ gemeinsam variieren.
-Ein positiver Wert zeigt an, dass die Merkmale sich tendentiell proportional verhalten, während ein negativer Wert auf ein antiproportionales Verhalten hindeutet.
+    Die Stichprobenkovarianz $s_{xy}$ ist wie folgt definiert:
+    \[s_{xy} = \frac{1}{n-1} \sum_{i=1}^{n} (x_i - \ol{x})(y_i - \ol{y})\]
+    Dieser Wert gibt an, inwieweit zwei Merkmale $X$ und $Y$ gemeinsam variieren.
+    Ein positiver Wert zeigt an, dass die Merkmale sich tendentiell proportional verhalten, während ein negativer Wert auf ein antiproportionales Verhalten hindeutet.
 }
 \ex{Beispiel zur Stichprobenkovarianz}{
-Angenommen, wir untersuchen den Zusammenhang zwischen der Anzahl der Stunden, die jemand lernt, und der erreichten Punktzahl bei einer Prüfung.
-Eine positive Kovarianz würde darauf hindeuten, dass im Allgemeinen mehr Lernstunden zu einer höheren Punktzahl führen, während eine negative Kovarianz bedeuten würde, dass mehr Lernstunden mit einer niedrigeren Punktzahl verbunden sind (was in der Praxis unwahrscheinlich wäre).
+    Angenommen, wir untersuchen den Zusammenhang zwischen der Anzahl der Stunden, die jemand lernt, und der erreichten Punktzahl bei einer Prüfung.
+    Eine positive Kovarianz würde darauf hindeuten, dass im Allgemeinen mehr Lernstunden zu einer höheren Punktzahl führen, während eine negative Kovarianz bedeuten würde, dass mehr Lernstunden mit einer niedrigeren Punktzahl verbunden sind (was in der Praxis unwahrscheinlich wäre).
 }
+
 \subsection{Stichprobenkorrelationskoeffizient}
 Die Stichprobenkovarianz hat zwei Nachteile: Sie ist unbegrenzt und maßstabsabhängig.
 Der Korrelationskoeffizient wurde entwickelt, um diese Probleme zu beheben.
 Um die Einheiten von X und Y zu eliminieren, wird die Stichprobenkovarianz durch Größen dividiert, die in Einheiten von X und Y ausgedrückt sind, wie z.B.\ die Standardabweichungen, die ebenfalls Abweichungen in ihren Berechnungen verwenden.
 \dfn{Stichprobenkorrelationskoeffizient}{
-Der Stichproben-Korrelationskoeffizient $r$ ist ein Maß für den Grad und die Richtung des linearen Zusammenhangs zwischen zwei Variablen und wie folgt definiert:
+    Der Stichproben-Korrelationskoeffizient $r$ ist ein Maß für den Grad und die Richtung des linearen Zusammenhangs zwischen zwei Variablen und wie folgt definiert:
     \[r = \frac{\mathrm{cov}(x, y)}{d_x \cdot d_y} = \frac{\ol{xy} - \ol{x}\cdot\ol{y}}{\sqrt{\ol{x^2} - \ol{x}^2} \cdot \sqrt{\ol{y^2} - \ol{y}^2}} = \frac{s_{xy}}{s_x \cdot s_y}\]
-Er variiert zwischen -1 und 1, wobei r = 1 eine perfekte positive Korrelation (alle Punkte liegen auf einer Linie mit positiver Steigung), r = -1 eine perfekte negative Korrelation (alle Punkte liegen auf einer Linie mit negativer Steigung) und r = 0 keinen linearen Zusammenhang zwischen den Variablen bedeutet.
+    Er variiert zwischen -1 und 1, wobei r = 1 eine perfekte positive Korrelation (alle Punkte liegen auf einer Linie mit positiver Steigung), r = -1 eine perfekte negative Korrelation (alle Punkte liegen auf einer Linie mit negativer Steigung) und r = 0 keinen linearen Zusammenhang zwischen den Variablen bedeutet.
 }
 Es ist zu beachten, dass $r$ maßstabsunabhängig ist und dadurch stabil gegenüber Datentransformationen (wie der Währungsumrechnung)ist.
 Der Stichprobenkorrelationskoeffizient ist ebenfalls sehr empfindlich gegenüber ausreißern.
@@ -57,7 +61,106 @@ Für die Werte von $\mid r\mid$ spricht man von folgenden Zusammenhängen:
 \end{itemize}
 Ist $r$ negativ, so spricht man von negativen Korrelationen, ist $r$ positiv, so spricht man von positiven Korrelationen.
 
-\section{Einführung in die Regressionsanalyse}
-blabla
 
-\subsection{Berechnung der Regressionskoeffizienten}
+\section{Einführung in die Regressionsanalyse}
+Die Regressionsanalyse ist eine statistische Methode, die den Zusammenhang zwischen einer abhängigen Variable und einer oder mehreren unabhängigen Variablen untersucht.
+Der grundlegende Zweck der Regressionsanalyse besteht darin, Vorhersagen zu treffen und die Beziehung zwischen den Variablen zu modellieren.
+\newline \newline
+Die Regression unterscheidet sich von der Korrelation insofern, als sie nicht nur den Grad und die Richtung des Zusammenhangs zwischen zwei Variablen misst, sondern auch ein mathematisches Modell zur Vorhersage der Werte einer Variablen (die abhängige Variable) auf der Grundlage der Werte einer oder mehrerer anderer Variablen (die unabhängigen Variablen) bietet.
+Während die Korrelation nur den Grad des linearen Zusammenhangs zwischen zwei Variablen misst, ohne eine Kausalität zu implizieren, ermöglicht die Regression die Untersuchung kausaler Beziehungen.
+\newline \newline
+Beispiele für kausale Zusammenhänge, die durch eine Regressionsanalyse untersucht werden können, sind:
+\begin{itemize}
+    \item Die Beziehung zwischen Bildungsstand und Einkommen: Hier könnte der Bildungsstand die unabhängige Variable und das Einkommen die abhängige Variable sein.
+    Die Regressionsanalyse könnte verwendet werden, um zu untersuchen, wie Veränderungen im Bildungsstand das Einkommen beeinflussen.
+
+    \item Die Wirkung von Werbeausgaben auf die Verkaufszahlen: In diesem Fall könnten die Werbeausgaben die unabhängige Variable und die Verkaufszahlen die abhängige Variable sein.
+    Die Regressionsanalyse könnte genutzt werden, um zu analysieren, wie eine Erhöhung oder Reduzierung der Werbeausgaben die Verkaufszahlen beeinflusst.
+
+    \item Der Einfluss der Außentemperatur auf den Energieverbrauch eines Gebäudes: Hier könnte die Außentemperatur die unabhängige Variable und der Energieverbrauch die abhängige Variable sein.
+    Eine Regressionsanalyse könnte zeigen, wie Änderungen der Außentemperatur den Energieverbrauch beeinflussen.
+\end{itemize}
+
+\subsection{Berechnung des Regressionskoeffizienten}
+\dfn{Regressionskoeffizient}{
+    Der Regressionskoeffizient, auch bekannt als Beta-Koeffizient ($\beta$ oder $b$), ist ein Parameter in der Regressionsgleichung, der die Steigung der Regressionslinie angibt.
+    Er gibt den durchschnittlichen Zusammenhang zwischen der unabhängigen und der abhängigen Variable an, wenn alle anderen Variablen konstant gehalten werden.
+    \newline
+    Der Regressionskoeffizient ist ein Maß für die Änderung der abhängigen Variable, die durch eine Einheit Änderung der unabhängigen Variable verursacht wird.
+    \[b = \frac{\mathrm{cov(x,y)}}{d_x^2}\]
+    Diese Formel sagt aus, dass die Änderung von $y$ in Bezug auf $x$ proportional zur Kovarianz von $x$ und $y$ ist, skaliert durch die Varianz von $x$.
+}
+\dfn{Bestimmtheitsmaß eines Regressionsmodells}{
+    Das Bestimmtheitsmaß (auch als R-Quadrat oder $R^2$ bekannt) ist ein statistisches Maß in der Regressionsanalyse, das die Güte der Anpassung eines Regressionsmodells an die tatsächlichen Daten angibt.
+    Es misst den Anteil der Varianz in der abhängigen Variable, der durch das Regressionsmodell erklärt wird.
+    \[r^2 = \left(\frac{{\text{{cov}}(x, y)}}{{s_x \cdot s_y}}\right)^2 = \frac{{\text{{cov}}(x, y)^2}}{{s_x^2 \cdot s_y^2}}\]
+
+    Hier ist cov(x, y) die Kovarianz zwischen $x$ und  $y$, $s_x$ ist die Standardabweichung von $x$ und $s_y$ ist die Standardabweichung von $y$.
+    \newline
+    Dieses Maß kann zwischen 0 und 1 liegen.
+    Ein Wert von 0 bedeutet, dass das Modell überhaupt keine Varianz erklärt, während ein Wert von 1 bedeutet, dass das Modell die gesamte Varianz erklärt.
+    \newline
+    Ein höheres $R^2$ zeigt also eine bessere Anpassung des Modells an die Daten.
+    Es ist jedoch wichtig zu beachten, dass ein hohes $R^2$ nicht unbedingt bedeutet, dass das Modell korrekt oder nützlich ist, da es auch bei nicht sinnvollen oder überangepassten Modellen hoch sein kann.
+}
+
+\subsection{Rangkorrelationskoeffizient nach Spearman}
+Der Rangkorrelationskoeffizient nach Spearman, oft als Spearman's Rho bezeichnet, ist ein nicht-parametrisches Maß der statistischen Abhängigkeit zwischen den Rängen zweier Variablen.
+Es misst die Stärke und Richtung der Assoziation zwischen zwei ranggeordneten Variablen und ist somit besonders nützlich für die Analyse ordinaler Daten.
+\newline
+In der Praxis ersetzt Spearman's Rho die Daten im gewöhnlichen Korrelationskoeffizienten durch ihre Ränge.
+Dies bedeutet, dass anstatt die tatsächlichen Werte der Variablen zu vergleichen, ihre Positionen oder Ränge innerhalb der Datensätze verglichen werden.
+Diese Methode ist besonders robust gegenüber Ausreißern, da diese in der Rangreihenfolge weniger Gewicht erhalten.
+\newline
+Die Berechnung von Spearman's Rho ähnelt der Berechnung des Pearson-Korrelationskoeffizienten, wobei jedoch die Ränge der Beobachtungen anstelle der tatsächlichen Werte verwendet werden.
+Wichtig ist jedoch, dass weiterhin die Rangpärchen gegenübersgestellt werden, wie vorher die Wertpärchen kombiniert wurde.
+\newline \newline
+Die Hauptmerkmale von Spearman's Rho sind:
+\begin{itemize}
+    \item Er kann Werte zwischen -1 und 1 annehmen, wobei -1 eine perfekte negative Korrelation, 0 keine Korrelation und 1 eine perfekte positive Korrelation anzeigt.
+    \item Er ist ein nicht-parametrisches Maß und setzt daher keine bestimmte Verteilungsform voraus.
+    \item Er ist robust gegenüber Ausreißern.
+    \item Er kann zur Analyse ordinaler Daten verwendet werden.
+    \item Er misst monotone Zusammenhänge, also ob die Beziehung zwischen den Variablen stetig ist, unabhängig davon, wie schnell oder langsam sich die Veränderung vollzieht.
+\end{itemize}
+
+\subsection{Kontingenz für nominale Merkmale}
+Das bekannte Konzept von Vierfeldertafeln für binäre Merkmale erweitern wir nun um Merkmale mit mehr als zwei Ausprägungen.
+Dazu verwenden wir Kreuztabellen, die auch als Kontingenztabellen bekannt sind.
+\newline
+Kreuztabellen sind eine Erweiterung der Vierfeldertafeln und ermöglichen es uns, die Beziehungen zwischen zwei oder mehr Merkmalen zu analysieren, die jeweils mehrere Ausprägungen haben können.
+Sie bieten eine übersichtliche Darstellung der Häufigkeiten der verschiedenen Kombinationen von Merkmalsausprägungen.
+\newline
+Als Beispiel betrachten wir die Merkmale \textit{Geschlecht} (mit den Ausprägungen "männlich" und "weiblich") und \textit{Berufsposition} (mit den Ausprägungen "leitender Angestellter", "Tarifangestellter" und "Arbeiter").
+\newline \newline
+Eine entsprechende Kreuztabelle könnte so aussehen: \newline \newline
+\begin{center}
+    \begin{tabular}{lccc|c}
+        & Leitender Angestellter & Tarifangestellter & Arbeiter    & Summe        \\
+        \hline
+        Männlich & $n_{11}=20$            & $n_{12}=30$       & $n_{13}=50$ & $n_{1+}=100$ \\
+        Weiblich & $n_{21}=15$            & $n_{22}=35$       & $n_{23}=45$ & $n_{2+}=95$  \\
+        \hline
+        Summe    & $n_{+1}=35$            & $n_{+2}=65$       & $n_{+3}=95$ & $n_{++}=195$ \\
+    \end{tabular}
+\end{center}
+
+\dfn{Kontingenzkoeffizient $C$}{
+    Um den Zusammenhang zwischen den Merkmalen zu messen, führen wir den Kontingenzkoeffizienten $C$ ein. Er ist ein Maß für die Stärke des Zusammenhangs zwischen den beiden Merkmalen und kann Werte zwischen 0 (kein Zusammenhang) und 1 (perfekter Zusammenhang) annehmen.
+    \[ C = \sqrt{\frac{\sum_{i,j} (n_{ij} - \frac{n_{i+} \cdot n_{+j}}{n_{++}})^2}{(n_{++}^2 - \sum_{i} n_{i+}^2) \cdot \sum_{j} n_{+j}^2}} \]
+    In dieser Formel wird über alle Zellen $i,j$ der Tabelle summiert.
+    Der Ausdruck in der Klammer im Zähler ist die Differenz zwischen der beobachteten Häufigkeit $n_{ij}$ und der erwarteten Häufigkeit unter der Annahme der Unabhängigkeit der Merkmale (gegeben durch das Produkt der Summenzeile $n_{i+}$ und der Summenspalte $n_{+j}$ geteilt durch die Gesamtzahl der Beobachtungen $n_{++}$).
+    Im Nenner wird die quadratische Summe der Summenzeilen und Summenspalten vom Quadrat der Gesamtzahl der Beobachtungen subtrahiert.
+    Der gesamte Ausdruck wird quadriert, um negative Werte zu vermeiden.
+    Die Wurzel sorgt dafür, dass der Wertebereich des Kontingenzkoeffizienten wieder zwischen 0 und 1 liegt.
+}
+
+Durch die Verwendung von Kreuztabellen und dem Kontingenzkoeffizienten können wir also den Zusammenhang zwischen nominalen Merkmalen quantitativ erfassen und interpretieren.
+\newline
+Die Kontingenz ist allgemeiner als die Korrelation.
+Man spricht hier meist von stochastischer (in diesem Fall linearer) Abhängigkeit.
+Wichtig zu beachten ist hierbei, dass der Zusammenhang zwischen den Merkmalen immer theoretisch begründbar sein muss.
+Andernfalls wäre es Nachweisbar, dass es einen Zusammenhang zwischen beispielsweise der Anzahl an Krebs-Neuerkrankungen in Deutschland und den Wahlergebnissen in den USA gibt.
+\newline
+Grundsätzlich muss man immer in Betracht ziehen, dass in der Realität meist mehr als 2 Merkmale gegenseitigen Einfluss ausüben und eine Analyse von nur zwei Merkmalen somit nur begrenzte Aussagekraft hat.
+In der Regel ist man bereits froh, wenn man für $|r|$ einen Wert von ungefähr $0.7$ oder sogar höher findet.
