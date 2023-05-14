@@ -1,0 +1,195 @@
+\chapter{Wahrscheinlichkeitsrechnung}
+Wahrscheinlichkeitsrechnung ist ein grundlegendes Konzept in der Statistik und bildet die Basis für viele statistische Methoden und Verfahren.
+Es ist wichtig, die Grundlagen der Wahrscheinlichkeitsrechnung zu verstehen, um statistische Schlüsse ziehen und Modelle interpretieren zu können.
+Im folgenden Kapitel werden wir die Grundprinzipien der Wahrscheinlichkeitsrechnung, einschließlich Ereignisse, Wahrscheinlichkeiten und Wahrscheinlichkeitsverteilungen, behandeln.
+Wir werden auch die wichtigen Konzepte der bedingten Wahrscheinlichkeit und der Unabhängigkeit von Ereignissen einführen.
+Durch das Verständnis dieser Konzepte können wir dann auf komplexere Themen wie die Binomial-, Normal- und Poisson-Verteilungen eingehen.
+
+
+\section{Einführung}
+
+\subsection{Zufällige Ereignisse und der Ereignisraum}
+In der Wahrscheinlichkeitsrechnung bezeichnet man eine Situation, in der mehrere Ausgänge möglich sind und deren Ergebnis nicht mit Sicherheit vorhergesagt werden kann, als Zufallsvorgang.
+Die möglichen Ergebnisse dieses Zufallsvorgangs werden als zufällige Ereignisse bezeichnet.
+\newline \newline
+Ein Ereignis wird als sicher bezeichnet, wenn es mit Sicherheit eintritt.
+Dies bedeutet, dass unabhängig vom Ausgang des Zufallsvorgangs dieses Ereignis immer eintritt.
+Ein Beispiel dafür wäre das Werfen eines Würfels. Hier ist das Ereignis \glqq Es fällt eine Zahl zwischen 1 und 6\grqq ein sicheres Ereignis, da bei jedem Wurf eine dieser Zahlen fällt.
+\newline \newline
+Ein unmögliches Ereignis hingegen ist ein Ereignis, das nie eintritt.
+Im obigen Beispiel wäre das Ereignis \glqq Es fällt eine Zahl größer als 6\grqq ein unmögliches Ereignis, da ein normaler Würfel nur die Zahlen 1 bis 6 hat.
+\newline \newline
+Die Menge aller möglichen Ereignisse eines Zufallsvorgangs wird als Ereignisraum bezeichnet und üblicherweise mit dem griechischen Buchstaben Omega ($\Omega$) symbolisiert.
+Der Ereignisraum stellt die Gesamtheit aller Ergebnisse dar, die bei einem bestimmten Zufallsvorgang auftreten können.
+\newline \newline
+Die Wahrscheinlichkeit eines Ereignisses ist ein Maß für die quantitative Stärke der Erwartung, dass dieses Ereignis eintritt.
+Sie wird auf einer Skala von 0 bis 1 gemessen, wobei 0 ein unmögliches Ereignis und 1 ein sicheres Ereignis darstellt.
+Die Wahrscheinlichkeit eines Ereignisses wird stark von den spezifischen Bedingungen des Zufallsvorgangs beeinflusst.
+\newline \newline
+Die Wahrscheinlichkeitsrechnung baut stark auf Konzepten der Mengenlehre auf.
+So kann beispielsweise die Vereinigung zweier Ereignisse als ein neues Ereignis betrachtet werden, das eintritt, wenn mindestens eines der beiden ursprünglichen Ereignisse eintritt.
+Die Schnittmenge zweier Ereignisse hingegen ist ein neues Ereignis, das nur dann eintritt, wenn beide ursprünglichen Ereignisse eintreten.
+
+\subsection{Axiome der Wahrscheinlichkeitsrechnung}
+Die Wahrscheinlichkeitsrechnung basiert auf drei grundlegenden Axiomen, die von Andrei Kolmogorov formuliert wurden.
+Diese Axiome beschreiben die grundlegenden Eigenschaften einer Wahrscheinlichkeitsverteilung.
+
+\begin{enumerate}
+    \item Für jedes Ereignis $A$ in $\Omega$ ist die Wahrscheinlichkeit $P(A)$ eine nicht-negative reelle Zahl. Das bedeutet, dass die Wahrscheinlichkeit jedes Ereignisses zwischen 0 und 1 liegt, einschließlich der beiden Endwerte.
+    \[P(A) \geq 0 \quad \forall A \in \Omega\]
+
+    \item Die Wahrscheinlichkeit des gesamten Ereignisraums $\Omega$ ist 1. Dies bedeutet, dass ein Ereignis aus dem Ereignisraum sicher eintritt.
+    \[P(\Omega) = 1 \land P(\emptyset) = 0\]
+
+    \item Für eine Folge von paarweise disjunkten Ereignissen $A_1, A_2, \dots$ (d.h. für alle $i \neq j$ gilt $A_i \cap A_j = \emptyset$) ist die Wahrscheinlichkeit der Vereinigung dieser Ereignisse gleich der Summe ihrer Wahrscheinlichkeiten.
+    \[P\left(\bigcup_{i=1}^{\infty} A_i \right) = \sum_{i=1}^{\infty} P(A_i)\]
+\end{enumerate}
+\newline \newline
+Basierend auf diesen Axiomen können weitere Eigenschaften abgeleitet werden:
+\begin{itemize}
+    \item Die Wahrscheinlichkeit des Komplements eines Ereignisses $A$ ist $P(\neg A) = 1 - P(A)$.
+    \item Die Wahrscheinlichkeit der Differenz zweier Ereignisse $A$ und $B$ ist $P(A \setminus B) = P(A) - P(A \cap B)$.
+    \item Der Additionssatz besagt, dass die Wahrscheinlichkeit der Vereinigung zweier Ereignisse gleich der Summe ihrer Wahrscheinlichkeiten minus der Wahrscheinlichkeit ihrer Schnittmenge ist: $P(A \cup B) = P(A) + P(B) - P(A \cap B)$.
+\end{itemize}
+
+
+\section{Bedingte Wahrscheinlichkeiten und stochastische Unabhängigkeit}
+
+\subsection{Bedingte Wahrscheinlichkeiten}
+
+Die \textbf{bedingte Wahrscheinlichkeit} $P(A|B)$ ist die Wahrscheinlichkeit des Ereignisses $A$, unter der Bedingung, dass das Ereignis $B$ eingetreten ist.
+In der Praxis bedeutet dies, dass wir Vorinformationen über das Eintreten bestimmter Ereignisse haben.
+Diese Information kann die Wahrscheinlichkeit anderer Ereignisse beeinflussen.
+
+\begin{equation}
+    P(A|B) = \frac{P(A \cap B)}{P(B)}
+\end{equation}
+
+wobei $P(A \cap B)$ die gemeinsame Wahrscheinlichkeit von $A$ und $B$ ist und $P(B)$ die Wahrscheinlichkeit des Ereignisses $B$ ist.
+Beachten Sie, dass $P(B) > 0$.
+\newline \newline
+Ein einfacher Weg, um bedingte Wahrscheinlichkeiten zu visualisieren, sind Baumdiagramme.
+Sie zeigen alle möglichen Ergebnisse eines Zufallsvorgangs in einer Baumstruktur, wobei jeder Ast des Baumes ein mögliches Ergebnis repräsentiert.
+Die Wahrscheinlichkeit jedes Astes ist die bedingte Wahrscheinlichkeit, gegeben das Ereignis, das zum Ast führt.
+
+\subsection{Stochastische Unabhängigkeit}
+
+Zwei Ereignisse $A$ und $B$ sind \textbf{stochastisch unabhängig}, wenn das Eintreten des einen Ereignisses die Wahrscheinlichkeit des anderen nicht beeinflusst.
+In anderen Worten, die bedingte Wahrscheinlichkeit $P(A|B)$ ist gleich der Wahrscheinlichkeit $P(A)$, und analog ist $P(B|A) = P(B)$.
+
+\begin{equation}
+    P(A \cap B) = P(A) \cdot P(B)
+\end{equation}
+
+Ein typisches Beispiel für stochastische Unabhängigkeit ist das Werfen zweier Münzen.
+Das Ergebnis des ersten Wurfs beeinflusst nicht das Ergebnis des zweiten Wurfs.
+Also, die Ereignisse \textit{erster Wurf ist Kopf} und \textit{zweiter Wurf ist Zahl} sind stochastisch unabhängig.
+\newline \newline
+Es ist jedoch wichtig zu beachten, dass stochastische Unabhängigkeit nicht dasselbe ist wie die Unabhängigkeit im Alltagssprachgebrauch.
+Es gibt Ereignisse, die im Alltagssinn unabhängig sind, aber in der Wahrscheinlichkeitsrechnung nicht, und umgekehrt.
+
+
+\section{Additionssatz für disjunkte Ereignisse}
+Wenn wir Ereignisse betrachten, die sich gegenseitig ausschließen, also \textit{disjunkte} Ereignisse, dann können wir ihre Wahrscheinlichkeiten direkt addieren, um die Wahrscheinlichkeit zu finden, dass mindestens eines dieser Ereignisse eintritt.
+Dies ist die Grundlage für den \textit{Additionssatz für disjunkte Ereignisse}.
+\newline \newline
+Formell ausgedrückt gilt für zwei disjunkte Ereignisse $A$ und $B$ in der Wahrscheinlichkeitsrechnung:
+
+\begin{equation}
+    P(A \cup B) = P(A) + P(B)
+\end{equation}
+
+Hierbei steht das Symbol $\cup$ für die Vereinigung von $A$ und $B$, also das Ereignis, dass entweder $A$ oder $B$ eintritt.
+Da $A$ und $B$ disjunkt sind, können sie nicht gleichzeitig eintreten, daher repräsentiert die Vereinigung $A \cup B$ ein \textit{exklusives Oder} zwischen den Ereignissen $A$ und $B$.
+\newline \newline
+Dieser Satz lässt sich problemlos auf mehr als zwei disjunkte Ereignisse erweitern. Für eine Menge disjunkter Ereignisse $A_1, A_2, \dots, A_n$ gilt:
+
+\begin{equation}
+    P(\bigcup_{i=1}^{n} A_i) = \sum_{i=1}^{n} P(A_i)
+\end{equation}
+
+Das bedeutet, dass die Wahrscheinlichkeit, dass mindestens eines aus einer Reihe von disjunkten Ereignissen eintritt, gleich der Summe ihrer individuellen Wahrscheinlichkeiten ist.
+
+
+\section{Multiplikationssatz für unabhängige Ereignisse}
+Wenn wir Ereignisse betrachten, die stochastisch unabhängig voneinander sind, dann können wir ihre Wahrscheinlichkeiten multiplizieren, um die Wahrscheinlichkeit zu finden, dass alle diese Ereignisse eintreten.
+Dies ist die Grundlage für den \textit{Multiplikationssatz für unabhängige Ereignisse}.
+\newline \newline
+Formell ausgedrückt gilt für zwei unabhängige Ereignisse $A$ und $B$ in der Wahrscheinlichkeitsrechnung:
+
+\begin{equation}
+    P(A \cap B) = P(A) \cdot P(B)
+\end{equation}
+
+Hierbei steht das Symbol $\cap$ für den Schnitt von $A$ und $B$, also das Ereignis, dass sowohl $A$ als auch $B$ eintreten.
+Da $A$ und $B$ unabhängig sind, hat das Eintreten von $A$ keinen Einfluss auf das Eintreten von $B$ und umgekehrt.
+\newline \newline
+Wie der Additionssatz lässt sich auch der Multiplikationssatz auf mehr als zwei unabhängige Ereignisse erweitern.
+Für eine Menge unabhängiger Ereignisse $A_1, A_2, \dots, A_n$ gilt:
+
+\begin{equation}
+    P(\bigcap_{i=1}^{n} A_i) = \prod_{i=1}^{n} P(A_i)
+\end{equation}
+
+Das bedeutet, dass die Wahrscheinlichkeit, dass alle Ereignisse aus einer Reihe von unabhängigen Ereignissen eintreten, gleich dem Produkt ihrer individuellen Wahrscheinlichkeiten ist.
+
+
+\section{Totale Wahrscheinlichkeit und der Satz von Bayes}
+
+\subsection{Satz der totalen Wahrscheinlichkeit}
+
+Der \textit{Satz der totalen Wahrscheinlichkeit} bietet einen Rahmen, um die Wahrscheinlichkeit eines Ereignisses zu berechnen, das durch mehrere disjunkte Ereignisse verursacht werden kann.
+\newline \newline
+Angenommen, wir haben eine Menge von Ereignissen $B_1, B_2, \dots, B_n$, die disjunkt sind und deren Vereinigung den gesamten Ereignisraum $\Omega$ bildet.
+Dann kann die Wahrscheinlichkeit eines beliebigen Ereignisses $A$ berechnet werden als:
+
+\begin{equation}
+    P(A) = \sum_{i=1}^{n} P(A|B_i) \cdot P(B_i)
+\end{equation}
+
+Dieser Satz ist besonders nützlich, wenn die direkte Berechnung der Wahrscheinlichkeit eines Ereignisses schwierig ist, aber die bedingten Wahrscheinlichkeiten für kleinere, klar definierte Teile des Ereignisraums bekannt sind.
+
+\ex{Beispiel zum Satz der totalen Wahrscheinlichkeit}{
+    Angenommen, eine Firma hat drei Maschinen (M1, M2 und M3) zur Herstellung von Schrauben.
+    Die Wahrscheinlichkeiten, dass eine zufällig ausgewählte Schraube von M1, M2 oder M3 produziert wird, sind jeweils $P(M1) = 0.2$, $P(M2) = 0.3$ und $P(M3) = 0.5$.
+    Die Wahrscheinlichkeiten, dass eine von den jeweiligen Maschinen produzierte Schraube defekt ist, sind $P(D|M1) = 0.01$, $P(D|M2) = 0.02$ und $P(D|M3) = 0.015$.
+    \newline \newline
+    Die Wahrscheinlichkeit, dass eine zufällig ausgewählte Schraube defekt ist, kann dann durch Anwendung des Satzes der totalen Wahrscheinlichkeit berechnet werden:
+
+    \begin{equation}
+        P(D) = P(D|M1) \cdot P(M1) + P(D|M2) \cdot P(M2) + P(D|M3) \cdot P(M3)
+    \end{equation}
+    Das ergibt
+    \begin{equation}
+        P(D) = 0.01 \cdot 0.2 + 0.02 \cdot 0.3 + 0.015 \cdot 0.5 = 0.0165
+    \end{equation}
+}
+
+\subsection{Satz von Bayes}
+
+Der \textit{Satz von Bayes} ist ein wichtiges Werkzeug in der statistischen Inferenz und ermöglicht es uns, unsere anfängliche Einschätzung der Wahrscheinlichkeit eines Ereignisses auf der Grundlage neuer Daten zu aktualisieren.
+\newline \newline
+Formal ausgedrückt, wenn wir zwei Ereignisse $A$ und $B$ haben, dann gibt der Satz von Bayes die bedingte Wahrscheinlichkeit von $A$ gegeben $B$ in Bezug auf die bedingte Wahrscheinlichkeit von $B$ gegeben $A$ und die unbedingten Wahrscheinlichkeiten von $A$ und $B$ wie folgt an:
+
+\begin{equation}
+    P(A|B) = \frac{P(B|A) \cdot P(A)}{P(B)}
+\end{equation}
+
+Der Satz von Bayes ist besonders nützlich, wenn wir Informationen über die bedingte Wahrscheinlichkeit in die entgegengesetzte Richtung benötigen.
+Das heißt, wenn wir $P(B|A)$ kennen, aber eigentlich an $P(A|B)$ interessiert sind.
+
+\ex{Beispiel zum Satz von Bayes}{
+    Angenommen, wir wollen die Wahrscheinlichkeit berechnen, dass eine zufällig ausgewählte defekte Schraube von Maschine 2 (M2) produziert wurde.
+    Dazu können wir den Satz von Bayes anwenden:
+
+    \begin{equation}
+        P(M2|D) = \frac{P(D|M2) \cdot P(M2)}{P(D)}
+    \end{equation}
+
+    Setzen wir die bereits bekannten Werte ein, ergibt sich
+    \begin{equation}
+        P(M2|D) = \frac{0.02 \cdot 0.3}{0.0165} \approx 0.3636
+    \end{equation}
+
+    Das bedeutet, dass unter den defekten Schrauben etwa 36.36\% von Maschine M2 produziert wurden.
+}
