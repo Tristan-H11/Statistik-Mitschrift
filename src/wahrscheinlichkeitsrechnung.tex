@@ -193,3 +193,81 @@ Das heißt, wenn wir $P(B|A)$ kennen, aber eigentlich an $P(A|B)$ interessiert s
 
     Das bedeutet, dass unter den defekten Schrauben etwa 36.36\% von Maschine M2 produziert wurden.
 }
+
+\section{Kombinatorik als Hilfmittel zur Berechnung von Wahrscheinlichkeiten}
+
+\subsection{Klassischer Wahrscheinlichkeitsbegriff von Laplace und das Gleichverteilungsmodell}
+
+Der klassische Wahrscheinlichkeitsbegriff, auch bekannt als Laplace-Wahrscheinlichkeit, ist auf den französischen Mathematiker Pierre-Simon Laplace zurückzuführen.
+Er definiert die Wahrscheinlichkeit eines Ereignisses als das Verhältnis der günstigen Fälle zur Gesamtzahl der gleich wahrscheinlichen Fälle.
+Formal ausgedrückt, wenn ein Zufallsexperiment $n$ gleich wahrscheinliche Ausgänge hat und $m$ von ihnen ein Ereignis $A$ darstellen, dann ist die Wahrscheinlichkeit von $A$ gegeben durch:
+
+\begin{equation}
+    P(A) = \frac{m}{n}
+\end{equation}
+
+Dieses Modell geht davon aus, dass alle möglichen Ereignisse eines Zufallsexperiments gleich wahrscheinlich sind.
+Es wird auch als Gleichverteilungsmodell bezeichnet.
+
+\subsection{Statistische Definition der Wahrscheinlichkeit}
+
+Die statistische Definition der Wahrscheinlichkeit basiert auf der relativen Häufigkeit eines Ereignisses in einer Reihe von unabhängigen Versuchen.
+Wenn ein Zufallsexperiment unendlich oft wiederholt wird, und das Ereignis $A$ tritt $n_A$ mal auf, dann ist die Wahrscheinlichkeit von $A$ definiert als:
+
+\begin{equation}
+    P(A) = \lim_{{n \to \infty}} \frac{n_A}{n}
+\end{equation}
+
+\subsection{Kombinatorik}
+
+Die Kombinatorik ist ein Zweig der Mathematik, der sich mit Zählproblemen befasst.
+Sie bietet wichtige Werkzeuge zur Berechnung von Wahrscheinlichkeiten.
+
+\subsubsection{Binomialkoeffizient und Pascalsches Dreieck}
+
+Der Binomialkoeffizient, oft als \textit{n über k} oder $C(n, k)$ bezeichnet, gibt die Anzahl der Möglichkeiten an, $k$ Objekte aus einer Gruppe von $n$ zu wählen.
+Er ist definiert durch:
+
+\begin{equation}
+    C(n, k) = \frac{n!}{k!(n-k)!}
+\end{equation}
+
+wobei $n!$ die Fakultät von $n$ ist und $k!(n-k)!$ den Produkt aller positiven ganzen Zahlen bis zu $k$ bzw. $(n-k)$ darstellt.
+Der Binomialkoeffizient ist eng mit dem Pascalschen Dreieck verbunden, in dem jede Zahl die Summe der zwei Zahlen direkt über ihr ist.
+
+\subsubsection{Urnenmodelle}
+
+Ein klassisches Beispiel in der Wahrscheinlichkeitsrechnung ist das Urnenmodell.
+Es handelt sich dabei um ein hypothetisches Szenario, bei dem Kugeln aus einer Urne gezogen werden, um verschiedene Wahrscheinlichkeitsprobleme zu illustrieren.
+Es kann sowohl mit Zurücklegen (jede gezogene Kugel wird zurück in die Urne gelegt) als auch ohne Zurücklegen (jede gezogene Kugel wird nicht zurückgelegt) betrachtet werden.
+
+\subsubsection{Permutationen}
+
+Eine Permutation ist eine Anordnung von Objekten in einer bestimmten Reihenfolge.
+Die Anzahl der Permutationen von $n$ unterschiedlichen Objekten ist $n!$, da es $n$ Möglichkeiten für das erste Objekt, $n-1$ Möglichkeiten für das zweite Objekt und so weiter gibt.
+
+Wenn die Reihenfolge der Auswahl in Betracht gezogen wird, dann ist die Anzahl der Permutationen von $n$ Objekten, die $k$ auf einmal ausgewählt werden, durch $P(n, k) = n(n - 1)(n - 2) \ldots (n - k + 1)$ gegeben.
+
+
+\ex{Beispiel: Urnenmodell}{
+Betrachten wir als Beispiel eine Urne mit 10 Kugeln, davon sind 4 rot und 6 blau.
+Wenn wir 2 Kugeln ohne Zurücklegen ziehen, wie viele Möglichkeiten gibt es, genau eine rote Kugel zu ziehen?
+
+Die Anzahl der Möglichkeiten, eine rote und eine blaue Kugel zu ziehen, ist gegeben durch die Multiplikation der Anzahl der Möglichkeiten, eine rote Kugel aus vier zu ziehen und die Anzahl der Möglichkeiten, eine blaue Kugel aus sechs zu ziehen.
+Da die Reihenfolge wichtig ist (rote Kugel zuerst oder blaue Kugel zuerst), verdoppeln wir dieses Produkt:
+
+\begin{equation}
+    2 \cdot C(4, 1) \cdot C(6, 1) = 2 \cdot 4 \cdot 6 = 48
+\end{equation}
+
+Die Gesamtzahl der Möglichkeiten, zwei Kugeln aus zehn zu ziehen, ist $C(10, 2) = 45$.
+Daher ist die Wahrscheinlichkeit, genau eine rote Kugel zu ziehen, gegeben durch $P(\text{\glqq eine rote Kugel\grqq}) = \frac{48}{45} = 1.07$, was größer als 1 ist und somit einen Fehler in der Rechnung anzeigt.
+Bei genauerer Überlegung stellen wir fest, dass wir die Anzahl der Möglichkeiten, eine rote und eine blaue Kugel zu ziehen, verdoppelt haben, obwohl wir ohne Zurücklegen ziehen.
+Daher muss die Reihenfolge nicht berücksichtigt werden, und die korrekte Berechnung ist:
+
+\begin{equation}
+    C(4, 1) \cdot C(6, 1) = 4 \cdot 6 = 24
+\end{equation}
+
+Die korrekte Wahrscheinlichkeit ist also $P(\text{\glqq eine rote Kugel\grqq}) = \frac{24}{45} = 0.53$.
+}
