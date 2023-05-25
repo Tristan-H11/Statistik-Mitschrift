@@ -199,8 +199,121 @@ Die Formel ist:
 
     Der Erwartungswert $\mu$ für die Anzahl der faulen Äpfel, die wir ziehen, berechnet sich allgemein durch
     \[
-    \mu = E(X) = \frac{n \cdot K}{N} = \frac{3 \cdot 3}{10} = 0.9
+        \mu = E(X) = \frac{n \cdot K}{N} = \frac{3 \cdot 3}{10} = 0.9
     \]
     Dies bedeutet, dass wir im Durchschnitt 0.9 faule Äpfel ziehen würden, wenn wir das Experiment viele Male wiederholen würden.
 }
 
+
+\section{Die Binomialverteilung}
+
+Die Binomialverteilung ist eine diskrete Wahrscheinlichkeitsverteilung, die sich aus der Betrachtung einer Serie von unabhängigen und gleichverteilten Zufallsexperimenten ableitet.
+Jedes dieser Experimente, auch als Bernoulli-Versuche bezeichnet, hat genau zwei mögliche Ergebnisse: \textit{Erfolg} (mit einer Wahrscheinlichkeit $p$) und \textit{Fehlschlag} (mit einer Wahrscheinlichkeit $1-p$).
+\newline \newline
+Die Binomialverteilung gibt nun die Wahrscheinlichkeit dafür an, dass bei $n$ solcher unabhängigen Experimente genau $k$ Erfolge auftreten.
+Die Herleitung der Binomialverteilung folgt aus der Kombinatorik: Die Anzahl der Möglichkeiten, genau $k$ Erfolge in $n$ Versuchen zu erzielen, entspricht der Anzahl der Kombinationen von $n$ Elementen, die $k$ enthalten, multipliziert mit der Wahrscheinlichkeit, genau diese Kombination zu erhalten.
+
+Mathematisch ausgedrückt lässt sich die Wahrscheinlichkeit $P(X=k)$, bei $n$ Versuchen genau $k$ Erfolge zu erzielen, durch die Binomialverteilung wie folgt darstellen:
+
+\[
+    P(X=k) = {n \choose k} p^k (1-p)^{n-k}
+\]
+
+Eine andere Möglichkeit, eine diskrete Wahrscheinlichkeitsverteilung zu beschreiben, ist die Angabe ihrer Wahrscheinlichkeitsfunktion, welche die Menge aller Paare $(k, P(X=k))$, also:
+\[
+    P(k) \coloneqq
+    \begin{cases}
+        \mathbb{N} &\rightarrow [0;1] \\
+        k &\rightarrow {n \choose k} p^k (1-p)^{n-k}
+    \end{cases}
+\]
+
+Die Binomialverteilung hat eine breite Anwendung in der Statistik und in verschiedenen Fachbereichen.
+Beispiele dafür sind die Modellierung von Zufallsexperimenten, in denen die Anzahl der Erfolge in einer festen Anzahl von unabhängigen Bernoulli-Versuchen von Interesse ist, oder die Modellierung von Wahrscheinlichkeiten in der Qualitätskontrolle, im Risikomanagement und in der genetischen Forschung.
+
+\subsection{Maßzahlen und Verteilungsfunktion}
+Ein wesentlicher Vorteil der Binomialverteilung liegt in der Einfachheit ihrer Maßzahlen.
+Insbesondere lassen sich der Erwartungswert und die Varianz direkt aus den Parametern der Verteilung berechnen.
+
+Der Erwartungswert $E(X)$ einer Binomialverteilung ist einfach das Produkt aus der Anzahl der Versuche $n$ und der Erfolgswahrscheinlichkeit $p$:
+
+\[
+    E(X) = n \cdot p
+\]
+
+Dies ergibt sich direkt aus der Definition des Erwartungswertes als gewichteter Durchschnitt aller möglichen Werte, wobei die Gewichtung durch die jeweilige Wahrscheinlichkeit erfolgt.
+Bei der Binomialverteilung ist die Wahrscheinlichkeit für jeden Versuch gleich $p$, daher ergibt sich der Erwartungswert direkt als Produkt aus der Anzahl der Versuche und der Erfolgswahrscheinlichkeit.
+
+Ähnlich verhält es sich mit der Varianz $V(X)$, die die erwartete quadratische Abweichung vom Erwartungswert misst.
+Für eine Binomialverteilung kann die Varianz einfach als
+
+\[
+    V(X) = n \cdot p \cdot (1-p)
+\]
+
+berechnet werden.
+Dies ergibt sich aus der Tatsache, dass die Varianz einer Binomialverteilung die Summe der Varianzen der einzelnen Bernoulli-Versuche ist, von denen jeder eine Varianz von $p \cdot (1-p)$ hat.
+
+Die kumulative Verteilungsfunktion $F(x)$ einer diskreten Zufallsvariablen ist definiert als die Summe der Wahrscheinlichkeiten für alle Werte kleiner oder gleich $x$.
+In der Praxis bedeutet dies, dass man die Wahrscheinlichkeiten aller einzelnen Ereignisse bis zu einem bestimmten Wert $x$ addiert.
+Für die Binomialverteilung ergibt sich daher:
+
+\[
+    F(x) = \sum_{i=0}^{x} P(X=i)
+\]
+
+\subsection{Gegenereignis}
+
+Das Konzept des \textit{Gegenereignisses} spielt eine wichtige Rolle in der Wahrscheinlichkeitstheorie.
+Das Gegenereignis zu einem Ereignis $A$ in einem Wahrscheinlichkeitsraum ist das Ereignis, dass $A$ \textit{nicht} eintritt.
+Es wird oft mit $\overline{A}$ oder $A'$ bezeichnet.
+
+Im Kontext der Binomialverteilung kann das Gegenereignis besonders nützlich sein.
+Angenommen, wir sind an der Wahrscheinlichkeit $P(X \geq k)$ für eine Zufallsvariable $X$ interessiert, die binomialverteilt ist.
+Direkt diese Wahrscheinlichkeit zu berechnen kann umständlich sein, da es das Aufsummieren der Wahrscheinlichkeiten für viele verschiedene Ergebnisse erfordert.
+
+An dieser Stelle kann das Gegenereignis ins Spiel kommen.
+Beachten wir, dass das Ereignis $\{X \geq k\}$ das Gegenereignis zu $\{X < k\}$ ist.
+Mit anderen Worten, entweder $X$ ist größer oder gleich $k$, oder $X$ ist kleiner als $k$; es gibt keine andere Möglichkeit.
+Daher gilt:
+\[
+    P(X \geq k) = 1 - P(X < k).
+\]
+
+Da $P(X < k)$ die Wahrscheinlichkeit ist, dass $X$ einen Wert annimmt, der kleiner ist als $k$, müssen wir nur die Wahrscheinlichkeiten für weniger Ergebnisse addieren, was oft einfacher ist.
+
+Es ist wichtig zu beachten, dass dieses Prinzip nicht nur für die Binomialverteilung gilt, sondern für alle Wahrscheinlichkeitsverteilungen.
+Die Verwendung von Gegenereignissen ist eine mächtige Technik in der Wahrscheinlichkeitstheorie und kann oft dazu beitragen, Berechnungen erheblich zu vereinfachen.
+
+\section{Poissonverteilung}
+
+Die \textit{Poissonverteilung} ist eine diskrete Wahrscheinlichkeitsverteilung, die Ereignisse beschreibt, die selten eintreten und unabhängig von der Zeit sind.
+Sie ist nach dem französischen Mathematiker Siméon Denis Poisson benannt, der sie im Kontext der Modellierung der Anzahl der Todesfälle infolge von Pferdetritten in der Preußischen Armee eingeführt hat.
+
+\subsection{Herleitung und Beziehung zur Binomialverteilung}
+
+Die Poisson-Verteilung kann als Grenzfall der Binomialverteilung für $n \rightarrow \infty$ und $np = \lambda$ (eine feste Zahl) aufgefasst werden.
+Dies entspricht der Situation, in der wir eine sehr große Anzahl von unabhängigen Bernoulli-Versuchen durchführen, bei denen die Wahrscheinlichkeit für \textit{Erfolg} sehr klein, die durchschnittliche Anzahl von Erfolgen jedoch endlich ist.
+
+\subsection{Wahrscheinlichkeitsfunktion}
+
+Die Wahrscheinlichkeitsfunktion der Poisson-Verteilung ist gegeben durch:
+
+\[
+    P(X = k) = \frac{\mu^k e^{-\mu}}{k!},
+\]
+
+für $k \in \mathbb{N}_0 = 0, 1, 2, \dots$.
+Hierbei ist $\mu$ der Erwartungswert und die Varianz der Verteilung, und $e$ ist die Basis des natürlichen Logarithmus.
+
+\subsection{Erwartungswert und Varianz}
+
+Für die Poisson-Verteilung gilt, dass der Erwartungswert und die Varianz gleich sind, das heißt $E(X) = \text{Var}(X) = \mu$.
+Dies liegt an der Eigenschaft des Poisson-Prozesses, bei dem die Ereignisse unabhängig voneinander auftreten, mit einer festen durchschnittlichen Rate $\lambda$.
+
+\subsection{Poisson-Prozess}
+
+Die Poisson-Verteilung wird oft verwendet, um den \textit{Poisson-Prozess} zu modellieren, ein Modell für eine Serie von Ereignissen, die unabhängig mit einer konstanten durchschnittlichen Rate auftreten.
+Beispiele für solche Prozesse sind die Anzahl von Anrufen in einem Callcenter in einem bestimmten Zeitraum oder die Anzahl von Fehlern in einem Computercode.
+
+Die Poisson-Verteilung ist in vielen Bereichen von Bedeutung, einschließlich der Warteschlangentheorie, der Zuverlässigkeitstheorie und der Ereignisdatenanalyse.
