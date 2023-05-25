@@ -26,16 +26,181 @@ In diesem Fall ist der Wahrscheinlichkeitsraum gegeben durch $\Omega = \{1, 2, 3
 Die Verteilung dieser Zufallsvariablen kann in der folgenden Tabelle dargestellt werden:
 
 \begin{center}
-    \begin{tabular}{c|c}
-        $x_i$ & $P(X = x_i)$  \\
+    \begin{tabular}{c|c|c|c|c|c|c}
+        $x_i$        & 1             & 2             & 3             & 4             & 5             & 6             \\
         \hline
-        1     & $\frac{1}{6}$ \\
-        2     & $\frac{1}{6}$ \\
-        3     & $\frac{1}{6}$ \\
-        4     & $\frac{1}{6}$ \\
-        5     & $\frac{1}{6}$ \\
-        6     & $\frac{1}{6}$ \\
+        $P(X = x_i)$ & $\frac{1}{6}$ & $\frac{1}{6}$ & $\frac{1}{6}$ & $\frac{1}{6}$ & $\frac{1}{6}$ & $\frac{1}{6}$ \\
     \end{tabular}
 \end{center}
 
-Diese Tabelle zeigt uns die Wahrscheinlichkeit dafür, dass die Zufallsvariable $X$ einen bestimmten Wert annimmt. Es ist wichtig zu verstehen, dass diese Wahrscheinlichkeiten theoretische Wahrscheinlichkeiten sind, die auf der Annahme basieren, dass der Würfel fair ist.
+Diese Tabelle zeigt uns die Wahrscheinlichkeit dafür, dass die Zufallsvariable $X$ einen bestimmten Wert annimmt.
+Es ist wichtig zu verstehen, dass diese Wahrscheinlichkeiten theoretische Wahrscheinlichkeiten sind, die auf der Annahme basieren, dass der Würfel fair ist.
+
+
+\section{Erläuterungen am Beispiel der diskreten Gleichverteilung}
+
+Eine diskrete Zufallsvariable $X$ kann verschiedene Werte annehmen, die wir als $x_1, x_2, \dots, x_k$ bezeichnen.
+Jeder dieser Werte hat eine zugeordnete Wahrscheinlichkeit, die wir als $p_1, p_2, \dots, p_k$ bezeichnen.
+So kann die Verteilung der Zufallsvariable $X$ durch die folgende Tabelle dargestellt werden:
+
+\begin{center}
+    \begin{tabular}{|c|c|c|c|c|c|}
+        \hline
+        $x_i$ & & $x_1$ & $x_2$ & $\cdots$ & $x_k$ \\
+        \hline
+        $p_i$ & & $p_1$ & $p_2$ & $\cdots$ & $p_k$ \\
+        \hline
+    \end{tabular}
+\end{center}
+
+Hierbei ist $p_i = P(X=x_i)$ die Wahrscheinlichkeit, dass die Zufallsvariable $X$ den Wert $x_i$ annimmt.
+Die Funktion, die jedem möglichen Wert $x_i$ der Zufallsvariable die zugehörige Wahrscheinlichkeit $p_i$ zuweist, nennen wir die \textit{Wahrscheinlichkeitsfunktion} oder \textit{Wahrscheinlichkeitsverteilung}.
+
+Ein besonders wichtiger Wert in der Verteilung ist der \textit{Modus} $x_D$, das ist der Wert $x_i$ mit der höchsten Wahrscheinlichkeit $p_i$.
+In einem Säulendiagramm, das die Werte $x_i$ gegen ihre Wahrscheinlichkeiten $p_i$ aufträgt, ist der Modus die Säule mit der größten Höhe.
+Dieses Diagramm ist eine hilfreiche Visualisierung, die einen schnellen Überblick über die Verteilung ermöglicht.
+
+Eine andere Art, eine diskrete Verteilung darzustellen, ist die \textit{Verteilungsfunktion}, die wir als $F_i = P(X \leq x_i)$ definieren.
+Das ist die Wahrscheinlichkeit, dass die Zufallsvariable einen Wert annimmt, der kleiner oder gleich $x_i$ ist.
+Die Verteilungsfunktion bildet eine Treppenfunktion, wenn sie als Diagramm dargestellt wird, mit Stufen an den Werten $x_i$ und Höhen entsprechend den kumulierten Wahrscheinlichkeiten $F_i$.
+
+\subsection{Allgemeingültige Rechenregeln zu kumulierten diskreten Wahrscheinlichkeiten}
+Die folgenden Formeln repräsentieren verschiedene Wahrscheinlichkeiten, die von den Grenzwerten $x_i$ und $x_j$ und der Verteilungsfunktion $F(x)$ abhängen.
+\begin{center}
+    \begin{tabular}{|l|l|p{6cm}|}
+        \hline
+        \textbf{Wahrscheinlichkeit} & \textbf{Formel}                                   & \textbf{Beschreibung}                                                                   \\
+        \hline
+        $P(X < x_i)$                & $F_i - P(x_i)=F(x_{i-1})$                         & Wahrscheinlichkeit, dass $X$ kleiner als $x_i$ ist                                      \\
+        \hline
+        $P(X > x_i)$                & $1- F(x)$                                         & Wahrscheinlichkeit, dass $X$ größer als $x_i$ ist                                       \\
+        \hline
+        $P(X \geq x_i)$             & $1- F(x) + P(x_i) = 1 - F(x_{i-1})$               & Wahrscheinlichkeit, dass $X$ größer oder gleich $x_i$ ist                               \\
+        \hline
+        $P(x_j < X < x_i)$          & $F_i - F_j$                                       & Wahrscheinlichkeit, dass $X$ größer als $x_j$ und kleiner als $x_i$ ist                 \\
+        \hline
+        $P(x_j \leq X \leq x_i)$    & $F_i - F_j + P(x_j) = F_i - F_{j-1}$              & Wahrscheinlichkeit, dass $X$ größer oder gleich $x_j$ und kleiner oder gleich $x_i$ ist \\
+        \hline
+        $P(x_j \leq X < x_i)$       & $F_i - P(x_i) - F_j + P(x_j) = F_{i-1} - F_{j-1}$ & Wahrscheinlichkeit, dass $X$ größer oder gleich $x_j$ und kleiner als $x_i$ ist         \\
+        \hline
+        $P(x_j < X < x_i)$          & $F_i - P(x_i) - F_j = F_{i-1} - F_j$              & Wahrscheinlichkeit, dass $X$ größer als $x_j$ und kleiner als $x_i$ ist                 \\
+        \hline
+    \end{tabular}
+\end{center}
+
+
+\section{Lage- und Streumaße}
+
+\subsection{Erwartungswert}
+Der Erwartungswert ($E(X)$) ist ein grundlegendes Maß für die zentrale Tendenz einer Wahrscheinlichkeitsverteilung.
+Es handelt sich um den gewichteten Durchschnitt der möglichen Ausprägungen einer Zufallsvariable, wobei die Gewichte durch die Wahrscheinlichkeiten gegeben sind.
+Formelhaft ausgedrückt wird der Erwartungswert berechnet durch die Summe der Produkte der Werte $x_i$ und deren Wahrscheinlichkeiten $p_i$:
+
+\[
+    E(X) = \sum_{i=1}^{n} x_i \cdot p_i
+\]
+
+\subsection{Varianz}
+Die Varianz ($V(X)$ oder $\sigma^2$) ist ein Maß für die Streuung oder die Variation in einer Reihe von Zufallsvariablen.
+Es misst, wie weit die Zahlen in dem Datensatz voneinander entfernt sind.
+Die Varianz wird berechnet durch den Erwartungswert der quadrierten Abweichungen vom Erwartungswert:
+
+\[
+    V(X) = E(X^2) - E(X)^2
+\]
+
+\subsection{Standardabweichung}
+Die Standardabweichung ($\sigma$) ist die Quadratwurzel der Varianz.
+Sie ist ein nützliches Maß, da sie die Streuung der Werte um den Erwartungswert in derselben Einheit wie die Werte selbst angibt:
+
+\[
+    \sigma = \sqrt{V(X)}
+\]
+
+\ex{Lage- und Streumaße am Münzwurf}{
+    Betrachten wir das Beispiel eines Münzwurfs. Wenn die Münze auf \textit{Zahl} landet, gewinnen wir 5 Euro, und wenn sie auf \textit{Kopf} landet, verlieren wir 10 Euro.
+
+    \[
+        \begin{array}{|c|c|}
+            \hline
+            x_i & p_i \\
+            \hline
+            5   & 0.5 \\
+            -10 & 0.5 \\
+            \hline
+        \end{array}
+    \]
+
+    Wir berechnen den Erwartungswert $E(X)$ als die Summe der Produkte von $x_i$ und $p_i$:
+
+    \[
+        E(X) = \sum x_i \cdot p_i = 5 \cdot 0.5 + (-10) \cdot 0.5 = 2.5 - 5 = -2.5 \, \text{Euro}
+    \]
+
+    Wir berechnen den Erwartungswert der Quadrate, $E(X^2)$:
+
+    \[
+        E(X^2) = \sum x_i^2 \cdot p_i = 5^2 \cdot 0.5 + (-10)^2 \cdot 0.5 = 12.5 + 50 = 62.5
+    \]
+
+    Daraus können wir die Varianz $V(X)$ berechnen:
+
+    \[
+        V(X) = E(X^2) - [E(X)]^2 = 62.5 - (-2.5)^2 = 62.5 - 6.25 = 56.25
+    \]
+
+    Schließlich berechnen wir die Standardabweichung als Quadratwurzel der Varianz:
+
+    \[
+        \sqrt{V(X)} = \sqrt{56.25} = 7.5 \, \text{Euro}
+    \]
+
+    Diese Werte zeigen uns, dass wir im Durchschnitt 2.5 Euro verlieren und dass die Standardabweichung 7.5 Euro beträgt, was eine erhebliche Schwankung um den Erwartungswert darstellt.
+}
+
+
+\section{Die Hypergeometrische Verteilung}
+
+Die hypergeometrische Verteilung ist ein wichtiges Modell in der Wahrscheinlichkeitstheorie und beschreibt die Wahrscheinlichkeit für eine bestimmte Anzahl an Erfolgen in einer Ziehung ohne Zurücklegen aus einer endlichen Population.
+
+Der Begriff \textit{Hypergeometrisch} stammt aus der Mathematik und bezieht sich auf die Beziehung zwischen mehreren geometrischen Objekten.
+In diesem Kontext bezieht es sich auf die Beziehung zwischen der Anzahl der Erfolge, der Anzahl der Ziehungen und der Größe der Population.
+
+Die hypergeometrische Verteilung wird unter den folgenden Bedingungen verwendet:
+\begin{itemize}
+    \item Die Population oder Grundgesamtheit ist endlich.
+    \item Es gibt nur zwei mögliche Ausgänge für jedes Ereignis (Erfolg oder Misserfolg).
+    \item Die Ziehungen sind ohne Zurücklegen, was bedeutet, dass jedes gezogene Objekt nicht in die Population zurückkehrt.
+\end{itemize}
+
+Die Wahrscheinlichkeitsfunktion der hypergeometrischen Verteilung wird in der Form eines Quotienten von Binomialkoeffizienten dargestellt.
+Diese Form gibt die Anzahl der Möglichkeiten an, $k$ Erfolge aus $K$ möglichen zu ziehen und $n-k$ Misserfolge aus $N-K$ möglichen zu ziehen, geteilt durch die Gesamtzahl der Möglichkeiten, $n$ Objekte aus $N$ zu ziehen.
+Die Formel ist:
+
+\[
+    P(X=k) = \frac{{K \choose k} \cdot {{N-K} \choose {n-k}}}{{N \choose n}}
+\]
+
+\ex{Faule Äpfel aus einem Korb ziehen}{
+    Wir betrachten ein Experiment, bei dem drei Äpfel aus einem Korb mit 10 Äpfeln, darunter 3 faule Äpfel, gezogen werden.
+    Die Äpfel werden nach dem Ziehen nicht zurückgelegt.
+    Wir sind interessiert an der Wahrscheinlichkeit, bei allen drei Zügen einen faulen Apfel zu ziehen.
+
+    In dieser Situation haben wir eine Gesamtpopulation von $N=10$ Äpfeln, wovon $K=3$ Äpfel faul sind.
+    Die Anzahl der Ziehungen beträgt $n=3$.
+
+    Die Wahrscheinlichkeit, bei allen drei Zügen einen faulen Apfel zu ziehen, ergibt sich dann durch Einsetzen dieser Werte in die Formel für die hypergeometrische Verteilung:
+
+    \[
+        P(X=3) = \frac{{K \choose 3} \cdot {{N-K} \choose {n-3}}}{N \choose n} = \frac{{3 \choose 3} \cdot {{10-3} \choose {3-3}}}{10 \choose 3} = 0.008\bar{3} = 0.8\bar{3}\%
+    \]
+
+    Dies bedeutet, dass die Wahrscheinlichkeit, dass alle drei gezogenen Äpfel faul sind, bei etwa 0.8\bar{3}\% liegt.
+
+    Der Erwartungswert $\mu$ für die Anzahl der faulen Äpfel, die wir ziehen, berechnet sich allgemein durch
+    \[
+    \mu = E(X) = \frac{n \cdot K}{N} = \frac{3 \cdot 3}{10} = 0.9
+    \]
+    Dies bedeutet, dass wir im Durchschnitt 0.9 faule Äpfel ziehen würden, wenn wir das Experiment viele Male wiederholen würden.
+}
+
