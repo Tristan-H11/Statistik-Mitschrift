@@ -300,11 +300,30 @@ Dies entspricht der Situation, in der wir eine sehr große Anzahl von unabhängi
 Die Wahrscheinlichkeitsfunktion der Poisson-Verteilung ist gegeben durch:
 
 \[
-    P(X = k) = \frac{\mu^k e^{-\mu}}{k!},
+    P(X = k) = \frac{\mu^k}{k!}e^{-\mu},
 \]
 
 für $k \in \mathbb{N}_0 = 0, 1, 2, \dots$.
 Hierbei ist $\mu$ der Erwartungswert und die Varianz der Verteilung, und $e$ ist die Basis des natürlichen Logarithmus.
+
+\ex{Berechnung der Wahrscheinlichkeit von Website-Besuchen}{
+    Angenommen, wir haben eine Website mit durchschnittlich 5 Besuchern pro Stunde.
+    \newline
+    Dies ist unser Erwartungswert $\mu = 5$.
+    \newline
+    Wir möchten die Wahrscheinlichkeit berechnen, dass genau 7 Besucher in einer bestimmten Stunde auf die Website kommen.
+    \newline
+    \newline
+    $P(X=k)$ die Wahrscheinlichkeit, dass $k$ Besucher in einer Stunde auf die Website kommen. \newline
+    $\mu$ ist die durchschnittliche Anzahl von Besuchern pro Stunde. \newline
+    $k$ ist die Anzahl der Ereignisse, für die wir die Wahrscheinlichkeit berechnen möchten (In diesem Fall $7$ Besucher). \newline
+    $e$ ist die Basis des natürlichen Logarithmus (ungefähr 2.71828). \newline
+    \newline
+    Wir können die Wahrscheinlichkeit für $k=7$ Besucher in einer Stunde wie folgt berechnen:
+    \[
+        P(X=7) = \frac{5^7}{7!}e^{-5} \approx 0.104
+    \]
+}
 
 \subsection{Erwartungswert und Varianz}
 
